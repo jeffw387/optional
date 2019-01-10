@@ -5,9 +5,9 @@ project(optional)
 option(OPTIONAL_ENABLE_TESTS "Enable tests." ON)
 option(OPTIONAL_ENABLE_DOCS "Enable documentation." ON)
 
-add_library(optional INTERFACE)
-target_sources(optional INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/tl/optional.hpp)
-target_include_directories(optional INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/tl)
+add_library(tl_optional INTERFACE)
+target_sources(tl_optional INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/tl/optional.hpp)
+target_include_directories(tl_optional INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(OPTIONAL_ENABLE_TESTS)
   # Prepare "Catch" library for other executables
@@ -31,12 +31,12 @@ if(OPTIONAL_ENABLE_TESTS)
                    ${CMAKE_CURRENT_SOURCE_DIR}/tests/bases.cpp
                    ${CMAKE_CURRENT_SOURCE_DIR}/tests/nullopt.cpp)
 
-  add_executable(tests ${TEST_SOURCES})
+  add_executable(tl_optional_tests ${TEST_SOURCES})
 
-  target_link_libraries(tests Catch optional)
+  target_link_libraries(tl_optional_tests Catch optional)
 
   set(CXXSTD 14 CACHE STRING "C++ standard to use, default C++14")
-  set_property(TARGET tests PROPERTY CXX_STANDARD ${CXXSTD})
+  set_property(TARGET tl_optional_tests PROPERTY CXX_STANDARD ${CXXSTD})
 endif()
 
 if(OPTIONAL_ENABLE_DOCS)
