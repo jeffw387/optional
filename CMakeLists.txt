@@ -32,6 +32,7 @@ if(OPTIONAL_ENABLE_TESTS)
                    ${CMAKE_CURRENT_SOURCE_DIR}/tests/nullopt.cpp)
 
   add_executable(tl_optional_tests ${TEST_SOURCES})
+  target_include_directories(tl_optional_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
   target_link_libraries(tl_optional_tests Catch optional)
 
