@@ -34,7 +34,7 @@ if(OPTIONAL_ENABLE_TESTS)
   add_executable(tl_optional_tests ${TEST_SOURCES})
   target_include_directories(tl_optional_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-  target_link_libraries(tl_optional_tests Catch optional)
+  target_link_libraries(tl_optional_tests Catch tl_optional)
 
   set(CXXSTD 14 CACHE STRING "C++ standard to use, default C++14")
   set_property(TARGET tl_optional_tests PROPERTY CXX_STANDARD ${CXXSTD})
